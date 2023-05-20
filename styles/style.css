@@ -3,7 +3,17 @@ body {
   margin: 0;
 }
 #board {
+  background-image: url(../imgs/main-background-2.jpg);
+  background-size: cover;
   width: 100vw;
-  height: calc(100vh - 0.7vh);
+  height: 100vh;
   overflow: hidden;
+  position: relative;
+}
+#player {
+  /* background-image: url(../imgs/player.png); */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
 }

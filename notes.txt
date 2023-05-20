@@ -1,3 +1,45 @@
+Milestone 1:
+- initial set up: done
+- assets collect (basic)
+Milestone 2: done
+- create floor
+Milestone 3: done
+- create player: can move different directions but need to stay only on floor
+Milestone 4:
+- create collectible items showing random positions only on floor
+Milestone 5:
+- collision = score + disappear
+Milestone 6:
+- create obstacles: come from different random directions
+Milestone 7:
+- collision is gameover
+
+Bonus:
+- move player in a more prescise area (not "climb over funitures...")
+- items disappear after certain time
+- different items (correct one with 1 point, 2 points or wrong one with 0 points )
+- items appear/disappear at different speed
+- items moving, player has to chase after items
+- visual for items
+- items collected accordingly to theme that player choose (clothes, skins)
+- levels with different theme
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Final touch up | add attribute to assets
 Attribute to background image
 - Option 1: <a href="https://www.freepik.com/free-vector/home-interior-background-video-conferencing_9892517.htm#query=home%20room&position=23&from_view=keyword&track=ais">Image by pikisuperstar</a> on Freepik
 - Option 2: <a href="https://www.freepik.com/free-vector/living-room-interior-with-sofa-tv-apartment_9668869.htm#query=home%20room&position=36&from_view=keyword&track=ais">Image by upklyak</a> on Freepik
