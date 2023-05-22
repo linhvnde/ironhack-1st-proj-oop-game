@@ -100,21 +100,21 @@ class Item {
 const player = new Player();
 
 //randomly set image to items
-const numItems = 5; //if there are more images for items, change the number - also can consider to change the hardcode
+const numItems = 18; //if there are more images for items, change the number - also can consider to change the hardcode
+const numImgs = 18;
 let itemArr = [];
 let usedImages = []; //track used image
+for (i = 0; i < numItems; i++) {
+  setTimeout(() => {
+    let imageNum;
+    do {
+      //keep generate random unique imageNum
+      imageNum = Math.floor(Math.random() * numImgs) + 1;
+    } while (usedImages.includes(imageNum));
 
-for (let i = 0; i < numItems; i++) {
-  let imageNum = Math.floor(Math.random() * 5) + 1;
-
-  // if the generated number is already used, find another one
-  if (usedImages.includes(imageNum)) {
-    i--; //to ensure that a new item is not created for the current i value until a unique image number is found.
-    continue;
-  }
-
-  usedImages.push(imageNum); // keep track of used image to the usedImages array
-  itemArr[i] = new Item(i + 1, imageNum);
+    usedImages.push(imageNum); // keep track of used image to the usedImages array
+    itemArr[i] = new Item(i + 1, imageNum);
+  }, i * 4000);
 }
 
 //attach event listener
