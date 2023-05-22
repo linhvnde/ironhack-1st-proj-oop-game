@@ -5,9 +5,9 @@ Milestone 2: done
 - create floor
 Milestone 3: done
 - create player: can move different directions but need to stay only on floor
-Milestone 4:
+Milestone 4: done
 - create collectible items showing random positions only on floor
-Milestone 5:
+Milestone 5: done
 - collision = score + disappear
 Milestone 6:
 - create obstacles: come from different random directions
