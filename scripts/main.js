@@ -7,8 +7,8 @@ class Player {
     this.domElm = null;
     this.height = 30;
     this.width = 8;
-    this.positionX = 50;
-    this.positionY = 20;
+    this.positionX = 20;
+    this.positionY = 37;
     this.createDomElm();
   }
   createDomElm() {
@@ -151,6 +151,17 @@ const updateItems = (numImgs) => {
           const displayElm = document.getElementById("score-display");
           displayElm.innerText = player.score;
           console.log(`Score: ${player.score}`);
+        } else {
+          //display warning
+          let warningDisplay = document.getElementById("warning-display");
+          if (warningDisplay.style.display === "none") {
+            warningDisplay.style.display = "block";
+            setTimeout(() => {
+              warningDisplay.style.display = "none";
+            }, 800);
+          } else {
+            warningDisplay.style.display = "none";
+          }
         }
         // Remove the item
         itemArr[i].domElm.remove();
