@@ -142,10 +142,11 @@ const updateItems = (numImgs) => {
   setTimeout(() => {
     setInterval(removeItem, 5000);
   }, 3000); //delay removeItem at createItem
+  //check collision in very milisecond
   setInterval(() => {
     for (let i = 0; i < itemArr.length; i++) {
       if (player.isColliding(itemArr[i])) {
-        if (itemArr[i].imageNum >= 1 && itemArr[i].imageNum <= 7) {
+        if (itemArr[i].imageNum >= 1 && itemArr[i].imageNum <= 10) {
           player.score += 1;
           const displayElm = document.getElementById("score-display");
           displayElm.innerText = player.score;
@@ -157,7 +158,7 @@ const updateItems = (numImgs) => {
         i--; // Decrement i so we don't skip the next item
       }
     }
-  }, 100);
+  }, 1);
 };
 
 const player = new Player();
