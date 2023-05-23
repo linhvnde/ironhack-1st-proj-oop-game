@@ -83,7 +83,7 @@ div#warning-display {
   /* border: 10px solid rgba(0, 0, 0, 0.122);
   background-color: rgba(255, 0, 0, 0.058); */
 }
-
+/* pages */
 div#gameover-page {
   padding: 0;
   margin: 0.1vw;
@@ -100,4 +100,37 @@ a#replay {
   padding: 20px;
   margin: 10px;
   text-shadow: rgba(192, 154, 1, 0.617) 1px 0 10px;
+}
+#startpage {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 12vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#startpage div {
+  color: white;
+  text-shadow: rgba(192, 154, 1, 0.617) 1px 0 10px;
+  font-size: 2.5vh;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  z-index: 1;
+}
+div#instruction {
+  padding: 0;
+  margin: 0.7vw;
+  color: orangered;
+  text-shadow: rgba(85, 69, 5, 0.617) 1px 0 10px;
+  font-size: 3vh;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  z-index: 1;
 }
