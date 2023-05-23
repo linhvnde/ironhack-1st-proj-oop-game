@@ -5,8 +5,13 @@ body {
 #board {
   background-image: url(../imgs/main-background-2.jpg);
   background-size: cover;
+  background-position: center;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   position: relative;
 }
@@ -14,36 +19,29 @@ body {
   padding: 0;
   margin: 0;
   position: absolute;
-  top: 2vh;
-  left: 2vw;
-  width: 15vw;
+  top: 13vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-span {
+#score-board div {
   color: white;
-  font-size: 1rem;
+  font-size: 3vh;
   font-family: "Courier New", Courier, monospace;
   text-align: center;
   text-transform: uppercase;
   font-weight: bolder;
-  /* position: absolute;
-  top: 2.5vh;
-  left: 1.7vw; */
   z-index: 1;
 }
-span#score-display {
+div#score-display {
   color: white;
-  font-size: 5rem;
+  font-size: 10vh;
   font-family: "Courier New", Courier, monospace;
   text-align: center;
   text-transform: uppercase;
   font-weight: bolder;
-  /* position: absolute;
-  top: 3vh;
-  left: 3vw; */
   z-index: 1;
 }
 #player {
