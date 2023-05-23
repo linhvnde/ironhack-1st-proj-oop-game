@@ -110,6 +110,9 @@ class Item {
 
 let itemArr = [];
 let usedImages = [];
+const itemCreationDelay = 3000;
+const itemRemovalDelay = 5000;
+const itemLifeTime = itemCreationDelay + itemRemovalDelay;
 
 const createItem = (numImgs, id) => {
   let imageNum;
@@ -130,7 +133,7 @@ const updateItems = (numImgs) => {
   setInterval(() => {
     createItem(numImgs, id + 1);
     console.log("item create", id);
-  }, 3000);
+  }, itemCreationDelay);
 
   const removeItem = () => {
     if (itemArr.length > 0) {
@@ -140,8 +143,9 @@ const updateItems = (numImgs) => {
   };
 
   setTimeout(() => {
-    setInterval(removeItem, 5000);
-  }, 3000); //delay removeItem at createItem
+    setInterval(removeItem, itemRemovalDelay);
+  }, itemLifeTime); //delay removeItem after its itemLifeTime
+
   //check collision in very milisecond
   setInterval(() => {
     for (let i = 0; i < itemArr.length; i++) {
