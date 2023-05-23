@@ -113,8 +113,8 @@ class Item extends GameObj {
 }
 class Obstacle extends GameObj {
   constructor(id, imageNum) {
-    let positionX = Math.floor(Math.random() * (100 - 5));
-    super("obs", id, imageNum, 5, 5, positionX, 100 - 5);
+    let positionX = Math.floor(Math.random() * (100 - 7));
+    super("obs", id, imageNum, 7, 7, positionX, 100 - 7);
     this.speedX = 0;
     this.speedY = 0;
     this.gravity = 0.05;
@@ -125,7 +125,7 @@ class Obstacle extends GameObj {
   move() {
     setInterval(() => {
       this.newPos();
-    }, 25);
+    }, 10000);
   }
   newPos() {
     if (this.positionY < 0) {
@@ -168,7 +168,7 @@ const updateItems = (numImgs) => {
   let id = 0;
   setInterval(() => {
     createItem(numImgs, id + 1);
-    console.log("item create", id);
+    // console.log("item create", id);
   }, itemCreationDelay);
   //remove items
   const removeItem = () => {
@@ -200,7 +200,7 @@ const updateObstacles = (numImgs) => {
   let id = 0;
   setInterval(() => {
     createObstacle(numImgs, id + 1);
-    console.log("obstacle create", id);
+    // console.log("obstacle create", id);
   }, obstacleCreationDelay);
 };
 
@@ -223,15 +223,14 @@ setInterval(() => {
         console.log(`Score: ${player.score}`);
       } else {
         //display warning
+        // console.log("Collided with wrong item");
         let warningDisplay = document.getElementById("warning-display");
-        if (warningDisplay.style.display === "none") {
-          warningDisplay.style.display = "block";
-          setTimeout(() => {
-            warningDisplay.style.display = "none";
-          }, 800);
-        } else {
+        // console.log(warningDisplay);
+        warningDisplay.style.display = "block";
+
+        setTimeout(() => {
           warningDisplay.style.display = "none";
-        }
+        }, 500);
       }
       // Remove the item
       itemArr[i].domElm.remove();
