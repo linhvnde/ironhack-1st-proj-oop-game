@@ -9,18 +9,18 @@ Milestone 4: done
 - create collectible items showing random positions only on floor
 Milestone 5: done
 - collision = score + disappear
-Milestone 6:
+Milestone 6: done
 - create obstacles: come from different random directions
-Milestone 7:
+Milestone 7: done
 - collision is gameover
 
 Bonus:
 - move player in a more prescise area (not "climb over funitures...")
-- items disappear after certain time
-- different items (correct one with 1 point, 2 points or wrong one with 0 points )
+[x] items disappear after certain time
+[x] different items (correct one with 1 point, 2 points or wrong one with 0 points )
 - items appear/disappear at different speed
 - items moving, player has to chase after items
-- visual for items
+[x] visual for items
 - items collected accordingly to theme that player choose (clothes, skins)
 - levels with different theme
 

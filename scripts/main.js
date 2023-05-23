@@ -1,5 +1,6 @@
 // console.log("connected");
-
+let floorY = 44;
+let reachablePoint = 75;
 //Player
 class Player {
   constructor() {
@@ -25,7 +26,7 @@ class Player {
     // console.log("new player", this.domElm.style);
   }
   moveUp() {
-    if (this.positionY < 44) {
+    if (this.positionY < floorY) {
       this.positionY++;
       this.domElm.style.bottom = this.positionY + "vh";
 
@@ -79,14 +80,14 @@ class Player {
 //collectible items
 
 class GameObj {
-  constructor(type, id, imageNum) {
+  constructor(type, id, imageNum, height, width, positionX, positionY) {
     this.type = type;
     this.imageNum = imageNum;
     this.domElm = null;
-    this.height = 15;
-    this.width = 10;
-    this.positionX = Math.floor(Math.random() * (100 - this.width));
-    this.positionY = Math.floor(Math.random() * (75 - this.height));
+    this.height = height; //15;
+    this.width = width; //10;
+    this.positionX = positionX; // Math.floor(Math.random() * (100 - this.width));
+    this.positionY = positionY; //Math.floor(Math.random() * (reachablePoint - this.height));
     this.createDomElm(type, id, imageNum);
   }
   createDomElm(type, id, imageNum) {
@@ -105,14 +106,15 @@ class GameObj {
 }
 class Item extends GameObj {
   constructor(id, imageNum) {
-    super("item", id, imageNum);
+    let positionX = Math.floor(Math.random() * (100 - 10));
+    let positionY = Math.floor(Math.random() * (reachablePoint - 15));
+    super("item", id, imageNum, 15, 10, positionX, positionY);
   }
 }
 class Obstacle extends GameObj {
   constructor(id, imageNum) {
-    super("obs", id, imageNum);
-    this.positionY = 100 - this.height;
-    this.positionX = Math.floor(Math.random() * (100 - this.width + 1));
+    let positionX = Math.floor(Math.random() * (100 - 5));
+    super("obs", id, imageNum, 5, 5, positionX, 100 - 5);
     this.speedX = 0;
     this.speedY = 0;
     this.gravity = 0.05;
@@ -123,7 +125,7 @@ class Obstacle extends GameObj {
   move() {
     setInterval(() => {
       this.newPos();
-    }, 20);
+    }, 25);
   }
   newPos() {
     if (this.positionY < 0) {
