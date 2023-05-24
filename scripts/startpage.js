@@ -2,16 +2,16 @@ class Player {
   constructor() {
     this.score = 0;
     this.domElm = null;
-    this.height = 30;
-    this.width = 8;
-    this.positionX = 20;
-    this.positionY = 37;
+    this.height = 40;
+    this.width = 25;
+    this.positionX = 17;
+    this.positionY = 36;
     this.createDomElm();
   }
   createDomElm() {
     this.domElm = document.createElement("div");
     this.domElm.id = "player";
-    this.domElm.style.backgroundImage = "url(../imgs/player.png)";
+    this.domElm.style.backgroundImage = "url(../imgs/player-gamestart.png)";
     this.domElm.style.height = this.height + "vh";
     this.domElm.style.width = this.width + "vw";
     this.domElm.style.left = this.positionX + "vw";
