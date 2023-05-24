@@ -43,3 +43,5 @@ Final touch up | add attribute to assets
 Attribute to background image
 - Option 1: <a href="https://www.freepik.com/free-vector/home-interior-background-video-conferencing_9892517.htm#query=home%20room&position=23&from_view=keyword&track=ais">Image by pikisuperstar</a> on Freepik
 - Option 2: <a href="https://www.freepik.com/free-vector/living-room-interior-with-sofa-tv-apartment_9668869.htm#query=home%20room&position=36&from_view=keyword&track=ais">Image by upklyak</a> on Freepik
+Attribute to sound:
+- Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6008">Pixabay</a>
