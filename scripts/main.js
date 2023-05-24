@@ -94,7 +94,7 @@ class GameObj {
     this.domElm = document.createElement("div");
     this.domElm.id = `${type}` + id;
     this.domElm.classList.add(type);
-    this.domElm.style.backgroundImage = `url(../imgs/${type}${imageNum}.png)`; //dynamically change the images
+    this.domElm.style.backgroundImage = `url(./imgs/${type}${imageNum}.png)`; //dynamically change the images
     this.domElm.style.height = this.height + "vh";
     this.domElm.style.width = this.width + "vw";
     this.domElm.style.left = this.positionX + "vw";
