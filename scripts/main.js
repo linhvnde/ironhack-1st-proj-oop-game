@@ -15,7 +15,7 @@ class Player {
   createDomElm() {
     this.domElm = document.createElement("div");
     this.domElm.id = "player";
-    this.domElm.style.backgroundImage = "url(../imgs/player.png)";
+    this.domElm.style.backgroundImage = "url(./imgs/player.png)";
     this.domElm.style.height = this.height + "vh";
     this.domElm.style.width = this.width + "vw";
     this.domElm.style.left = this.positionX + "vw";
