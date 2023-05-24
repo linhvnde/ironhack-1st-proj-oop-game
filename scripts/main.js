@@ -1,7 +1,11 @@
 // console.log("connected");
+let isGameOver = false;
 let floorY = 44;
 let reachablePoint = 75;
 let openingAudio = new Audio("./sounds/gameplay.mp3");
+openingAudio.preload = "auto";
+let gameOverAudio = new Audio("./sounds/gameover.wav");
+gameOverAudio.preload = "auto";
 //Player
 class Player {
   constructor() {
@@ -124,7 +128,11 @@ class Obstacle extends GameObj {
     this.move();
   }
   move() {
-    setInterval(() => {
+    const obstacleMovementIntervalId = setInterval(() => {
+      if (isGameOver) {
+        clearInterval(obstacleMovementIntervalId);
+        return;
+      }
       this.newPos();
     }, 35);
   }
@@ -141,10 +149,10 @@ class Obstacle extends GameObj {
     }
   }
 }
+
 //game start
 
 //create items & randomly set image to items
-
 let itemArr = [];
 let usedImages = [];
 const itemCreationDelay = 3000;
@@ -164,12 +172,16 @@ const createItem = (numImgs, id) => {
 
   itemArr.push(new Item(id, imageNum));
 };
-//create items
+
 const updateItems = (numImgs) => {
   let id = 0;
-  setInterval(() => {
+  //create items
+  const itemCreationIntervalId = setInterval(() => {
+    if (isGameOver) {
+      clearInterval(itemCreationIntervalId);
+      return;
+    }
     createItem(numImgs, id + 1);
-    // console.log("item create", id);
   }, itemCreationDelay);
   //remove items
   const removeItem = () => {
@@ -180,7 +192,13 @@ const updateItems = (numImgs) => {
   };
 
   setTimeout(() => {
-    setInterval(removeItem, itemRemovalDelay);
+    const itemRemovalIntervalId = setInterval(() => {
+      if (isGameOver) {
+        clearInterval(itemRemovalIntervalId);
+        return;
+      }
+      removeItem();
+    }, itemRemovalDelay);
   }, itemLifeTime); //delay removeItem after its itemLifeTime
 };
 // Initialization of player and item images
@@ -199,9 +217,12 @@ const createObstacle = (numImgs, id) => {
 //update obstacles
 const updateObstacles = (numImgs) => {
   let id = 0;
-  setInterval(() => {
+  const obstacleCreationIntervalId = setInterval(() => {
+    if (isGameOver) {
+      clearInterval(obstacleCreationIntervalId);
+      return;
+    }
     createObstacle(numImgs, id + 1);
-    // console.log("obstacle create", id);
   }, obstacleCreationDelay);
 };
 
@@ -209,9 +230,8 @@ const numObstacleImgs = 8;
 updateObstacles(numObstacleImgs);
 
 const gameOver = () => {
+  isGameOver = true;
   openingAudio.pause();
-  let gameOverAudio = new Audio("./sounds/gameover.mp3");
-  gameOverAudio.preload = "auto";
   gameOverAudio.play();
   gameOverAudio.volume = 0.2;
   gameOverAudio.onended = function () {
@@ -235,6 +255,7 @@ setInterval(() => {
         //display warning
         // console.log("Collided with wrong item");
         let losingAudio = new Audio("./sounds/wrongitem.mp3");
+        losingAudio.volume = 0.5;
         losingAudio.play();
         let warningDisplay = document.getElementById("warning-display");
         // console.log(warningDisplay);
