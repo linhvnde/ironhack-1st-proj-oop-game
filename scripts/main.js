@@ -1,6 +1,7 @@
 // console.log("connected");
 let floorY = 44;
 let reachablePoint = 75;
+let openingAudio = new Audio("./sounds/gameplay.mp3");
 //Player
 class Player {
   constructor() {
@@ -208,7 +209,14 @@ const numObstacleImgs = 8;
 updateObstacles(numObstacleImgs);
 
 const gameOver = () => {
-  location.href = "./gameover.html";
+  openingAudio.pause();
+  let gameOverAudio = new Audio("./sounds/gameover.mp3");
+  gameOverAudio.preload = "auto";
+  gameOverAudio.play();
+  gameOverAudio.volume = 0.2;
+  gameOverAudio.onended = function () {
+    location.href = "./gameover.html";
+  };
 };
 
 //check collision in very milisecond
@@ -217,6 +225,8 @@ setInterval(() => {
   for (let i = 0; i < itemArr.length; i++) {
     if (player.isColliding(itemArr[i])) {
       if (itemArr[i].imageNum >= 1 && itemArr[i].imageNum <= 10) {
+        let winningAudio = new Audio("./sounds/itemcollected.wav");
+        winningAudio.play();
         player.score += 1;
         const displayElm = document.getElementById("score-display");
         displayElm.innerText = player.score;
@@ -224,6 +234,8 @@ setInterval(() => {
       } else {
         //display warning
         // console.log("Collided with wrong item");
+        let losingAudio = new Audio("./sounds/wrongitem.mp3");
+        losingAudio.play();
         let warningDisplay = document.getElementById("warning-display");
         // console.log(warningDisplay);
         warningDisplay.style.display = "block";
@@ -248,6 +260,11 @@ setInterval(() => {
 }, 1);
 
 //attach event listener
+window.addEventListener("load", (event) => {
+  openingAudio.loop = true;
+  openingAudio.volume = 0.3;
+  openingAudio.play();
+});
 document.addEventListener("keydown", (event) => {
   switch (event.code) {
     case "ArrowUp":

@@ -73,3 +73,9 @@ class Player {
   }
 }
 const player = new Player();
+window.addEventListener("load", (event) => {
+  let openingAudio = new Audio("./sounds/opening.mp3");
+  openingAudio.loop = true;
+  openingAudio.volume = 0.5;
+  openingAudio.play();
+});
