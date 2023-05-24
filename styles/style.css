@@ -3,7 +3,7 @@ body {
   margin: 0;
 }
 #board {
-  background-image: url(../imgs/main-background-2.jpg);
+  background-image: url(../imgs/main-background.jpg);
   background-size: cover;
   background-position: center;
   width: 100vw;
