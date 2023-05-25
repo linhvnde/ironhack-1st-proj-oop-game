@@ -99,7 +99,6 @@ div#gameover-page {
   z-index: 1;
 }
 #links span {
-  border: 1px solid black;
   padding: 10px;
   margin: 10px 25px;
   text-shadow: rgba(192, 154, 1, 0.617) 1px 0 10px;
