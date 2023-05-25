@@ -1,4 +1,3 @@
-// console.log("connected");
 let isGameOver = false;
 let floorY = 44;
 let reachablePoint = 75;
@@ -27,48 +26,36 @@ class Player {
     this.domElm.style.bottom = this.positionY + "vh";
     const board = document.getElementById("board");
     board.appendChild(this.domElm);
-
-    // console.log("new player", this.domElm.style);
   }
   moveUp() {
     if (this.positionY < floorY) {
       this.positionY++;
       this.domElm.style.bottom = this.positionY + "vh";
-
-      // console.log("Up", `new position is ${this.positionY}`);
     } else {
-      // console.log("Hit wall, cant move");
       return;
     }
   }
   moveDown() {
     if (this.positionY <= 0) {
-      // console.log("Hit wall, cant move");
       return;
     } else {
       this.positionY--;
       this.domElm.style.bottom = this.positionY + "vh";
-
-      // console.log("Down", `new position is ${this.positionY}`);
     }
   }
   moveLeft() {
     if (this.positionX <= 0) {
-      // console.log("Hit wall, cant move");
       return;
     } else {
       this.positionX--;
       this.domElm.style.left = this.positionX + "vw";
-      // console.log("Left", `new position is ${this.positionX}`);
     }
   }
   moveRight() {
     if (this.positionX < 100 - this.width) {
       this.positionX++;
       this.domElm.style.left = this.positionX + "vw";
-      // console.log("Right", `new position is ${this.positionX}`);
     } else {
-      // console.log("Hit wall, cant move");
       return;
     }
   }
@@ -81,8 +68,6 @@ class Player {
     );
   }
 }
-
-//collectible items
 
 class GameObj {
   constructor(type, id, imageNum, height, width, positionX, positionY) {
@@ -106,9 +91,9 @@ class GameObj {
     this.domElm.style.bottom = this.positionY + "vh";
     const board = document.getElementById("board");
     board.appendChild(this.domElm);
-    // console.log("new item", this.domElm.style);
   }
 }
+//collectible items
 class Item extends GameObj {
   constructor(id, imageNum) {
     let positionX = Math.floor(Math.random() * (100 - 10));
@@ -116,6 +101,7 @@ class Item extends GameObj {
     super("item", id, imageNum, 15, 10, positionX, positionY);
   }
 }
+//obstacles
 class Obstacle extends GameObj {
   constructor(id, imageNum) {
     let positionX = Math.floor(Math.random() * (100 - 7));
@@ -226,6 +212,7 @@ const updateObstacles = (numImgs) => {
   }, obstacleCreationDelay);
 };
 
+//obstacle images - if there are more images for obstacles, change the number
 const numObstacleImgs = 8;
 updateObstacles(numObstacleImgs);
 
@@ -239,8 +226,11 @@ const gameOver = () => {
   };
 };
 
-//check collision in very milisecond
-setInterval(() => {
+//check collision in every milisecond
+const collisionIntervalId = setInterval(() => {
+  if (isGameOver) {
+    clearInterval(collisionIntervalId);
+  }
   //item collisions actions
   for (let i = 0; i < itemArr.length; i++) {
     if (player.isColliding(itemArr[i])) {
@@ -287,6 +277,9 @@ window.addEventListener("load", (event) => {
   openingAudio.play();
 });
 document.addEventListener("keydown", (event) => {
+  if (isGameOver) {
+    return;
+  }
   switch (event.code) {
     case "ArrowUp":
       player.moveUp();
