@@ -19,3 +19,10 @@ Welcome to ***"The Loopey Madness"*** an **exhilarating game of speed, and accur
 
 ## Demo
 Time to [play](https://linhvnde.github.io/ironhack-1st-proj-oop-game/index.html "The Loopey Madness Game") and have some fun!!!
+
+___
+### Credits
+
+- Background Image <a href="https://www.freepik.com/free-vector/living-room-interior-with-sofa-tv-apartment_9668869.htm#query=home%20room&position=36&from_view=keyword&track=ais">Image by upklyak</a> on Freepik
+
+- Background music <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6008">Pixabay</a>
