@@ -4,7 +4,7 @@ class Player {
     this.domElm = null;
     this.height = 40;
     this.width = 25;
-    this.positionX = 17;
+    this.positionX = 10;
     this.positionY = 36;
     this.createDomElm();
   }

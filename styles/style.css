@@ -64,14 +64,12 @@ div#warning-display {
   z-index: 1;
 }
 #player {
-  /* background-image: url(../imgs/player.png); */
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
 }
 .item {
-  /* background-image: url(../imgs/item2.png); */
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -85,9 +83,6 @@ div#warning-display {
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
-  /* border-radius: 50%; */
-  /* border: 10px solid rgba(0, 0, 0, 0.122);
-  background-color: rgba(255, 0, 0, 0.058); */
 }
 /* pages */
 /* gameover-page */
@@ -114,25 +109,37 @@ a#replay {
   padding: 0;
   margin: 0;
   position: absolute;
-  top: 12vh;
-  width: 100vw;
+  top: 0vh;
+  width: 50vw;
+  height: 40vw;
+  background-image: url(../imgs/instructionboard.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#startpage div {
+#instruction-container {
+  top: 13vh;
+  height: 55vh;
   color: black;
   font-size: 2.5vh;
   font-family: "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-weight: bolder;
-  text-transform: uppercase;
   z-index: 1;
+  position: absolute;
 }
 div#ready {
   font-size: 2vh;
-  margin-bottom: 0.7vh;
+  margin: 3vh 0 1.5vh 0;
+  font-weight: bolder;
+  text-transform: uppercase;
   text-shadow: rgba(192, 154, 1, 0.617) 1px 0 10px;
 }
 div#game-name {
@@ -143,18 +150,37 @@ div#game-name {
   font-weight: bolder;
 }
 div#instruction {
+  width: 31vw;
+  height: 39vh;
   padding: 0;
-  margin: 0.7vw;
-  color: orangered;
-  text-shadow: rgba(85, 69, 5, 0.617) 1px 0 10px;
-  font-size: 3vh;
+  margin: 0.7vw 0.7vw 0 0.7vw;
+  color: white;
+  font-size: 1.7vh;
+  line-height: 1.3;
   font-family: "Courier New", Courier, monospace;
   text-align: center;
-  text-transform: uppercase;
-  font-weight: bolder;
   z-index: 1;
 }
-#startpage a {
+div#instruction h2 {
+  margin-top: 0;
+}
+div#instruction ol {
+  margin: 0 1.5vw 0 1.5vw;
+  text-align: justify;
+}
+div#instruction span {
+  color: orangered;
+  text-shadow: rgba(0, 0, 0, 0.617) 1px 0 10px;
+  font-weight: bolder;
+}
+div#play {
+  margin: 0.5vw 0.5vw;
+  background-color: rgba(240, 248, 255, 0.427);
+  border: 1px, solid red;
+  border-radius: 30px;
+  line-height: 2em;
+  width: 5em;
   text-transform: uppercase;
+  font-weight: bolder;
   text-shadow: rgba(244, 244, 244, 0.617) 1px 0 10px;
 }
