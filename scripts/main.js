@@ -5,6 +5,8 @@ let openingAudio = new Audio("./sounds/gameplay.mp3");
 openingAudio.preload = "auto";
 let gameOverAudio = new Audio("./sounds/gameover.wav");
 gameOverAudio.preload = "auto";
+//
+//
 //Player
 class Player {
   constructor() {
@@ -68,16 +70,18 @@ class Player {
     );
   }
 }
-
+//
+//
+//GameObj
 class GameObj {
   constructor(type, id, imageNum, height, width, positionX, positionY) {
     this.type = type;
     this.imageNum = imageNum;
     this.domElm = null;
-    this.height = height; //15;
-    this.width = width; //10;
-    this.positionX = positionX; // Math.floor(Math.random() * (100 - this.width));
-    this.positionY = positionY; //Math.floor(Math.random() * (reachablePoint - this.height));
+    this.height = height;
+    this.width = width;
+    this.positionX = positionX;
+    this.positionY = positionY;
     this.createDomElm(type, id, imageNum);
   }
   createDomElm(type, id, imageNum) {
@@ -93,6 +97,8 @@ class GameObj {
     board.appendChild(this.domElm);
   }
 }
+//
+//
 //collectible items
 class Item extends GameObj {
   constructor(id, imageNum) {
@@ -101,6 +107,8 @@ class Item extends GameObj {
     super("item", id, imageNum, 15, 10, positionX, positionY);
   }
 }
+//
+//
 //obstacles
 class Obstacle extends GameObj {
   constructor(id, imageNum) {
@@ -135,9 +143,10 @@ class Obstacle extends GameObj {
     }
   }
 }
-
+//
+//
 //game start
-
+//
 //create items & randomly set image to items
 let itemArr = [];
 let usedImages = [];
@@ -176,7 +185,6 @@ const updateItems = (numImgs) => {
       itemArr.shift();
     }
   };
-
   setTimeout(() => {
     const itemRemovalIntervalId = setInterval(() => {
       if (isGameOver) {
@@ -187,12 +195,14 @@ const updateItems = (numImgs) => {
     }, itemRemovalDelay);
   }, itemLifeTime); //delay removeItem after its itemLifeTime
 };
+//
+//
 // Initialization of player and item images
 const player = new Player();
 const numImgs = 21; //if there are more images for items, change the number - also can consider to change the hardcode
 updateItems(numImgs);
-
-////create obstacles & randomly set image to obstacles
+//
+//create obstacles & randomly set image to obstacles
 let obstacleArr = [];
 const obstacleCreationDelay = 1000;
 //create obstacles
@@ -211,7 +221,7 @@ const updateObstacles = (numImgs) => {
     createObstacle(numImgs, id + 1);
   }, obstacleCreationDelay);
 };
-
+//
 //obstacle images - if there are more images for obstacles, change the number
 const numObstacleImgs = 8;
 updateObstacles(numObstacleImgs);
@@ -225,7 +235,7 @@ const gameOver = () => {
     location.href = "./gameover.html";
   };
 };
-
+//
 //check collision in every milisecond
 const collisionIntervalId = setInterval(() => {
   if (isGameOver) {
@@ -234,6 +244,7 @@ const collisionIntervalId = setInterval(() => {
   //item collisions actions
   for (let i = 0; i < itemArr.length; i++) {
     if (player.isColliding(itemArr[i])) {
+      //collide with collectible items
       if (itemArr[i].imageNum >= 1 && itemArr[i].imageNum <= 10) {
         let winningAudio = new Audio("./sounds/itemcollected.wav");
         winningAudio.play();
@@ -242,15 +253,13 @@ const collisionIntervalId = setInterval(() => {
         displayElm.innerText = player.score;
         console.log(`Score: ${player.score}`);
       } else {
+        //collide with wrong items
         //display warning
-        // console.log("Collided with wrong item");
         let losingAudio = new Audio("./sounds/wrongitem.mp3");
         losingAudio.volume = 0.5;
         losingAudio.play();
         let warningDisplay = document.getElementById("warning-display");
-        // console.log(warningDisplay);
         warningDisplay.style.display = "block";
-
         setTimeout(() => {
           warningDisplay.style.display = "none";
         }, 500);
@@ -269,13 +278,16 @@ const collisionIntervalId = setInterval(() => {
     }
   }
 }, 1);
-
+//
+//
 //attach event listener
+//play music
 window.addEventListener("load", (event) => {
   openingAudio.loop = true;
   openingAudio.volume = 0.3;
   openingAudio.play();
 });
+//gameplay
 document.addEventListener("keydown", (event) => {
   if (isGameOver) {
     return;

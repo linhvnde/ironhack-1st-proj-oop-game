@@ -98,10 +98,23 @@ div#gameover-page {
   font-weight: bolder;
   z-index: 1;
 }
-a#replay {
-  padding: 20px;
-  margin: 10px;
+#links span {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px 25px;
   text-shadow: rgba(192, 154, 1, 0.617) 1px 0 10px;
+  background-color: rgba(240, 248, 255, 0.427);
+  border: 1px, solid red;
+  border-radius: 30px;
+  line-height: 1em;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+span#replay a {
+  width: 5em;
+}
+span#start a {
+  padding: 10px;
 }
 
 /* gamestart-page */
