@@ -1,6 +1,10 @@
+const HIGHEST_POINT_PLAYER_CAN_REACH = 44;
+const HIGHEST_POINT_PLAYER_CAN_MOVE = 75;
+
+
 let isGameOver = false;
-let floorY = 44;
-let reachablePoint = 75;
+let floorY = HIGHEST_POINT_PLAYER_CAN_REACH;
+let reachablePoint = HIGHEST_POINT_PLAYER_CAN_MOVE;
 let openingAudio = new Audio("./sounds/gameplay.mp3");
 openingAudio.preload = "auto";
 let gameOverAudio = new Audio("./sounds/gameover.wav");
